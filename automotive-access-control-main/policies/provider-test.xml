@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<PolicySet xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" PolicySetId="provider-test"
+           xmlns:geoxacml="http://www.opengis.net/geoxacml"
+           Version="1.0"
+           PolicyCombiningAlgId="urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:deny-unless-permit">
+  <Description>PIP-provider-related policies</Description>
+
+  <Target/>
+
+  <Policy
+          Version="1.0"
+          PolicyId="ProviderTest"
+          RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:permit-overrides">
+
+    <Target/>
+
+    <Rule
+            Effect="Permit"
+            RuleId="PermitTest">
+
+      <Condition>
+        <Apply FunctionId="urn:ogc:def:function:geoxacml:1.0:geometry-contains">
+          <AttributeValue DataType="urn:ogc:def:dataType:geoxacml:1.0:geometry"
+                          geoxacml:crs="EPSG:4326">POLYGON ((
+            48.574 13.479,
+            48.577 13.462,
+            48.574 13.438,
+            48.575 13.431,
+            48.574 13.421,
+            48.577 13.412,
+            48.560 13.400,
+            48.552 13.435,
+            48.558 13.438,
+            48.572 13.463,
+            48.574 13.479
+            ))
+          </AttributeValue>
+          <AttributeValue DataType="urn:ogc:def:dataType:geoxacml:1.0:geometry"
+                          geoxacml:crs="EPSG:4326">
+              POINT (48.575 13.447)
+          </AttributeValue>
+
+          <!--<Apply FunctionId="urn:ogc:def:function:geoxacml:1.0:geometry-one-and-only">
+              <AttributeDesignator DataType="urn:ogc:def:dataType:geoxacml:1.0:geometry"
+                                   AttributeId="urn:tf:cyber:xacml:location:gpslocation"
+                                   Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                   MustBePresent="true"
+              />
+          </Apply>-->
+
+        </Apply>
+      </Condition>
+    </Rule>
+  </Policy>
+</PolicySet>

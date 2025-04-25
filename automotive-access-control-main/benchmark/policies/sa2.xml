@@ -1,0 +1,1948 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Policy
+        xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+        Version="1.0"
+        PolicyId="SA"
+        RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable">
+    <Target>
+        <AnyOf>
+            <AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">smartsurance</AttributeValue>
+                    <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </Match>
+
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GET</AttributeValue>
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                                         MustBePresent="true"
+                    />
+                </Match>
+            </AllOf>
+        </AnyOf>
+    </Target>
+
+    <Rule
+            Effect="Permit"
+            RuleId="AllowSpeed">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/vehicle/vehicleSpeed</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="1">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="2">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="3">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="4">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="5">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="6">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="7">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="8">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="9">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="10">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="11">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="12">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="13">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="14">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="15"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="16"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="17"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="18"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="19"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="20"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="21"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="22"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="23"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="24"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="25"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="26"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="27"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="28"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="29"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="30"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="31"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="32"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+
+    <Rule   RuleId="33"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="34"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="35"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="36"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="37"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="38"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="39"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="40"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="41"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="42"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="43"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="44"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="45"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="46"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="47"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="48"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="AllowEngineSpeed">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/vehicle/engineSpeed</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="50"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="51"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="52"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="53"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="54"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="55"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="56"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="57"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="58"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="59"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="60"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="61"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="62"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="63"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="64"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="65"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="66"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="67"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="68"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="69"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="70"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="71"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="72"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="73"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="74"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="75"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="76"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="77"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="78"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="79"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="80"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="81"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="82"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="83"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="84"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="85"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="86"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="87"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="88"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="89"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="90"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="91"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="92"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="93"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="94"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="95"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="96"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="97"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule   RuleId="98"
+            Effect="Permit">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skip</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="AllowThrottlePosition">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/vehicle/throttlePosition</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+</Policy>

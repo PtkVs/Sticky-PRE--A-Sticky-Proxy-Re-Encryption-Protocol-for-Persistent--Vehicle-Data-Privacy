@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Policy
+        xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+        Version="1.0"
+        PolicyId="SA"
+        RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable">
+    <Target>
+        <AnyOf>
+            <AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">smartsurance</AttributeValue>
+                    <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </Match>
+
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GET</AttributeValue>
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                                         MustBePresent="true"
+                    />
+                </Match>
+            </AllOf>
+        </AnyOf>
+    </Target>
+
+    <Rule
+            Effect="Permit"
+            RuleId="AllowSpeed">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/vehicle/vehicleSpeed</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="AllowEngineSpeed">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/vehicle/engineSpeed</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+    <Rule
+            Effect="Permit"
+            RuleId="AllowThrottlePosition">
+
+        <Target></Target>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/vehicle/throttlePosition</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+</Policy>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.3</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>cyber.tf</groupId>
+	<artifactId>authzforce-pdp-service</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>authzforce-pdp-service</name>
+	<description>A RESTFul XACML PDP Service for Automotive Access Control</description>
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-json</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.ow2.authzforce</groupId>
+			<artifactId>authzforce-ce-core-pdp-engine</artifactId>
+			<version>19.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.authzforce</groupId>
+			<artifactId>authzforce-ce-core-pdp-io-xacml-json</artifactId>
+			<version>19.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.authzforce</groupId>
+			<artifactId>authzforce-ce-jaxrs-utils</artifactId>
+			<version>2.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.authzforce</groupId>
+			<artifactId>authzforce-ce-core-pdp-testutils</artifactId>
+			<version>19.0.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		 <dependency>
+			<groupId>tf.cyber.xacml</groupId>
+			<artifactId>authzforce-geolocation-provider</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>tf.cyber.xacml</groupId>
+			<artifactId>authzforce-polling-frequency-provider</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>tf.cyber.xacml</groupId>
+			<artifactId>authzforce-time-extension</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		 <dependency>
+			<groupId>de.securedimensions.geoxacml</groupId>
+			<artifactId>authzforce-geoxacml-basic</artifactId>
+			<version>0.4.1</version>
+		</dependency>
+
+		<!-- Use the latest version available -->
+		<!--
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.15.2</version>
+
+		</dependency> -->
+
+	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.17.0</version>
+	</dependency>
+
+
+
+	<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>4.9.3</version>
+		</dependency>
+
+
+
+		<!-- JAXB RI, Jakarta XML Binding -->
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>4.0.4</version>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

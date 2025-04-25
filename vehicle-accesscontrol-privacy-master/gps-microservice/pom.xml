@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.2</version>
+		<relativePath/>
+	</parent>
+
+	<groupId>tf.cyber.gps.microservice</groupId>
+	<artifactId>gps-microservice</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>gps-microservice</name>
+	<description>GPS microservice that interacts with an VK162 GPS module</description>
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+<!--The tf.cyber.vk162 dependency was commented out because we copied the classes directly in tf.cyber.[vk162] from "vk-162-interface" and we use Dummy data-->
+<!--		<dependency>-->
+<!--			<groupId>tf.cyber.vk162</groupId>-->
+<!--			<artifactId>vk-162-interface</artifactId>-->
+<!--			<version>1.0-SNAPSHOT</version>-->
+<!--		</dependency>-->
+<!--The netty dependency from documentation https://github.com/java-native/jssc/tree/master-->
+		<dependency>
+			<groupId>io.github.java-native</groupId>
+			<artifactId>jssc</artifactId>
+			<version>2.9.6</version>
+		</dependency>
+<!--The jkschneider dependency from documentation https://github.com/jkschneider/netty-jssc/tree/master -->
+		<dependency>
+			<groupId>com.github.jkschneider</groupId>
+			<artifactId>netty-jssc</artifactId>
+			<version>0.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.0.21.Final</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.5.2</version>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

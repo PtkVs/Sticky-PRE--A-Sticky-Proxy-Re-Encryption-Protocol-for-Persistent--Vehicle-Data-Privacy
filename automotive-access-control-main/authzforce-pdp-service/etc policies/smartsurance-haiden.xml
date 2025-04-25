@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<PolicySet Version="1.0" PolicySetId="SmartSuranceSet" xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+           PolicyCombiningAlgId="urn:oasis:names:tc:xacml:1.0:policy-combining-algorithm:first-applicable">
+
+    <Target>
+        <AnyOf>
+            <AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">smartsurance</AttributeValue>
+                    <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </Match>
+            </AllOf>
+        </AnyOf>
+    </Target>
+
+    <Policy PolicyId="SmartSuranceResourceManagement"
+            Version="1.0"
+            xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+            RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable">
+
+        <Target>
+            <AnyOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">POST</AttributeValue>
+                        <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                             AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                                             Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                                             MustBePresent="true"
+                        />
+                    </Match>
+                </AllOf>
+            </AnyOf>
+        </Target>
+
+        <Rule
+                Effect="Permit"
+                RuleId="CPULimit">
+
+            <Description>Restricts CPU time to 50000 / 100000 microseconds at max.</Description>
+
+            <Target>
+                <AnyOf>
+                    <AllOf>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/cpu/time</AttributeValue>
+
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                    MustBePresent="true"
+                                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                        </Match>
+                    </AllOf>
+                </AnyOf>
+            </Target>
+
+            <Condition>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                AttributeId="urn:tf:cyber:resourcecontrol:cpu:time"
+                                DataType="http://www.w3.org/2001/XMLSchema#integer"
+                                MustBePresent="true"/>
+                    </Apply>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">50000</AttributeValue>
+                </Apply>
+            </Condition>
+        </Rule>
+
+        <Rule
+                Effect="Permit"
+                RuleId="MemoryHighLimit">
+
+            <Description>Allows allocating setting values up to 448 (512-64) MiB in memory.high.</Description>
+
+            <Target>
+                <AnyOf>
+                    <AllOf>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/memory/high</AttributeValue>
+
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                    MustBePresent="true"
+                                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                        </Match>
+                    </AllOf>
+                </AnyOf>
+            </Target>
+
+            <Condition>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                AttributeId="urn:tf:cyber:resourcecontrol:memory:high"
+                                DataType="http://www.w3.org/2001/XMLSchema#integer"
+                                MustBePresent="true"/>
+                    </Apply>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">469762048</AttributeValue>
+                </Apply>
+            </Condition>
+        </Rule>
+
+        <Rule
+                Effect="Permit"
+                RuleId="MemoryMaxLimit">
+
+            <Description>Allows allocating setting values up to 512 MiB in memory.max.</Description>
+
+            <Target>
+                <AnyOf>
+                    <AllOf>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/memory/max</AttributeValue>
+
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                    MustBePresent="true"
+                                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                        </Match>
+                    </AllOf>
+                </AnyOf>
+            </Target>
+
+            <Condition>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                AttributeId="urn:tf:cyber:resourcecontrol:memory:max"
+                                DataType="http://www.w3.org/2001/XMLSchema#integer"
+                                MustBePresent="true"/>
+                    </Apply>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">536870912</AttributeValue>
+                </Apply>
+            </Condition>
+        </Rule>
+
+        <Rule
+                Effect="Permit"
+                RuleId="RestrictReadSpeed">
+            <Description>Allows setting the disk i/o read speed for the primary disk (8:0) to 5 MiB/s max.</Description>
+            <Target>
+                <AnyOf>
+                    <AllOf>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/io/rbps</AttributeValue>
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                    MustBePresent="true"
+                                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                        </Match>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">8</AttributeValue>
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                    AttributeId="urn:tf:cyber:resourcecontrol:io:devicemaj"
+                                    DataType="http://www.w3.org/2001/XMLSchema#integer"
+                                    MustBePresent="true"/>
+                        </Match>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">0</AttributeValue>
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                    AttributeId="urn:tf:cyber:resourcecontrol:io:devicemin"
+                                    DataType="http://www.w3.org/2001/XMLSchema#integer"
+                                    MustBePresent="true"/>
+                        </Match>
+                    </AllOf>
+                </AnyOf>
+            </Target>
+
+            <Condition>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                AttributeId="urn:tf:cyber:resourcecontrol:io:rbps"
+                                DataType="http://www.w3.org/2001/XMLSchema#integer"
+                                MustBePresent="true"/>
+                    </Apply>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">5242880</AttributeValue>
+                </Apply>
+            </Condition>
+        </Rule>
+
+        <Rule
+                Effect="Permit"
+                RuleId="RestrictWriteSpeed">
+            <Description>Allows setting the disk i/o write speed for the primary disk (8:0) to 5 MiB/s max.</Description>
+            <Target>
+                <AnyOf>
+                    <AllOf>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/io/wbps</AttributeValue>
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                    MustBePresent="true"
+                                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                        </Match>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">8</AttributeValue>
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                    AttributeId="urn:tf:cyber:resourcecontrol:io:devicemaj"
+                                    DataType="http://www.w3.org/2001/XMLSchema#integer"
+                                    MustBePresent="true"/>
+                        </Match>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">0</AttributeValue>
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                    AttributeId="urn:tf:cyber:resourcecontrol:io:devicemin"
+                                    DataType="http://www.w3.org/2001/XMLSchema#integer"
+                                    MustBePresent="true"/>
+                        </Match>
+                    </AllOf>
+                </AnyOf>
+            </Target>
+            <Condition>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                AttributeId="urn:tf:cyber:resourcecontrol:io:wbps"
+                                DataType="http://www.w3.org/2001/XMLSchema#integer"
+                                MustBePresent="true"/>
+                    </Apply>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">5242880</AttributeValue>
+                </Apply>
+            </Condition>
+        </Rule>
+    </Policy>
+
+    <Policy PolicyId="SmartSuranceOffPeakHours"
+            Version="1.0"
+            RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable">
+
+        <Target></Target>
+
+        <Rule RuleId="DenyOffHours" Effect="Deny">
+            <Description>Denies all incoming requests by SmartSurance during off-peak hours.</Description>
+            
+            <Condition>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:3.0:function:dateTime-in-dayOfWeek-range">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                    AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-dateTime"
+                                    DataType="http://www.w3.org/2001/XMLSchema#dateTime"
+                                    MustBePresent="false"/>
+                        </Apply>
+                        <AttributeValue DataType="urn:oasis:names:tc:xacml:3.0:data‑type:dayOfWeek">1+02:00</AttributeValue>
+                        <AttributeValue DataType="urn:oasis:names:tc:xacml:3.0:data‑type:dayOfWeek">5+02:00</AttributeValue>
+                    </Apply>
+
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:2.0:function:time-in-range">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:time-one-and-only">
+                            <AttributeDesignator
+                                    DataType="http://www.w3.org/2001/XMLSchema#time"
+                                    AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-time"
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                    MustBePresent="true"/>
+                        </Apply>
+
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#time">09:00:00+02:00</AttributeValue>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#time">15:00:00+02:00</AttributeValue>
+                    </Apply>
+                </Apply>
+            </Condition>
+        </Rule>
+    </Policy>
+
+    <Policy PolicyId="SmartSuranceWrongLocation"
+            Version="1.0"
+            xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+            xmlns:geoxacml="http://www.opengis.net/geoxacml"
+            RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable">
+
+        <Target></Target>
+
+        <Rule RuleId="DenyWrongPosition" Effect="Deny">
+            <Description>Denies all incoming requests by SmartSurance when vehicle is inside hometown.</Description>
+
+            <Condition>
+                <Apply FunctionId="urn:ogc:def:function:geoxacml:1.0:geometry-contains">
+                    <AttributeValue
+                            DataType="urn:ogc:def:dataType:geoxacml:1.0:geometry"
+                            geoxacml:crs="EPSG:4326">POLYGON ((
+                        47.87309323364687 12.15210743260664,
+                        47.87234692642532 12.15153309921674,
+                        47.87220768045843 12.15195575473374,
+                        47.87144243316188 12.15149217039772,
+                        47.87116929162281 12.15200732142466,
+                        47.87147681844267 12.15294236163636,
+                        47.87189211646691 12.15320787010599,
+                        47.87223873300501 12.15326087111573,
+                        47.87246524989938 12.15305416236987,
+                        47.87279231045821 12.15324848664072,
+                        47.87309323364687 12.15210743260664
+                        ))
+                    </AttributeValue>
+
+                    <Apply FunctionId="urn:ogc:def:function:geoxacml:1.0:geometry-one-and-only">
+                        <AttributeDesignator
+                                DataType="urn:ogc:def:dataType:geoxacml:1.0:geometry"
+                                AttributeId="urn:tf:cyber:xacml:location:gpslocation"
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                MustBePresent="true"
+                        />
+                    </Apply>
+                </Apply>
+            </Condition>
+        </Rule>
+    </Policy>
+
+    <Policy PolicyId="SmartSuranceSensorData"
+            Version="1.0"
+            xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+            RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+
+        <Target>
+            <AnyOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GET</AttributeValue>
+                        <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                             AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                                             Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                                             MustBePresent="true"
+                        />
+                    </Match>
+                </AllOf>
+            </AnyOf>
+        </Target>
+
+        <Rule
+                Effect="Permit"
+                RuleId="VehicleLocation">
+
+            <Description>Allows access to vehicle location data every 1000 milliseconds only.</Description>
+
+            <Target>
+                <AnyOf>
+                    <AllOf>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/vehicle/location</AttributeValue>
+
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                    MustBePresent="true"
+                                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                        </Match>
+                    </AllOf>
+                </AnyOf>
+            </Target>
+
+            <Condition>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-greater-than-or-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#integer"
+                                             AttributeId="urn:tf:cyber:xacml:polling-frequency:time-since-last-access:ms"
+                                             Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                             MustBePresent="true"
+                        />
+                    </Apply>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1000</AttributeValue>
+                </Apply>
+            </Condition>
+        </Rule>
+
+        <Rule
+                Effect="Permit"
+                RuleId="VehicleSpeed">
+
+            <Description>Allows access to vehicle speed data every 1000 milliseconds only.</Description>
+
+            <Target>
+                <AnyOf>
+                    <AllOf>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/vehicle/vehicleSpeed</AttributeValue>
+
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                    MustBePresent="true"
+                                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                        </Match>
+                    </AllOf>
+                </AnyOf>
+            </Target>
+
+            <Condition>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-greater-than-or-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#integer"
+                                             AttributeId="urn:tf:cyber:xacml:polling-frequency:time-since-last-access:ms"
+                                             Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                             MustBePresent="true"
+                        />
+                    </Apply>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1000</AttributeValue>
+                </Apply>
+            </Condition>
+        </Rule>
+
+        <Rule
+                Effect="Permit"
+                RuleId="EngineSpeed">
+
+            <Description>Allows access to engine speed data every 1000 milliseconds only.</Description>
+
+            <Target>
+                <AnyOf>
+                    <AllOf>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/vehicle/engineSpeed</AttributeValue>
+
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                    MustBePresent="true"
+                                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                        </Match>
+                    </AllOf>
+                </AnyOf>
+            </Target>
+
+            <Condition>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-greater-than-or-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#integer"
+                                             AttributeId="urn:tf:cyber:xacml:polling-frequency:time-since-last-access:ms"
+                                             Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                             MustBePresent="true"
+                        />
+                    </Apply>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1000</AttributeValue>
+                </Apply>
+            </Condition>
+        </Rule>
+
+        <Rule
+                Effect="Permit"
+                RuleId="ThrottlePosition">
+
+            <Description>Allows access to vehicle throttle position data every 1000 milliseconds only.</Description>
+
+            <Target>
+                <AnyOf>
+                    <AllOf>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/vehicle/throttlePosition</AttributeValue>
+
+                            <AttributeDesignator
+                                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                    MustBePresent="true"
+                                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                        </Match>
+                    </AllOf>
+                </AnyOf>
+            </Target>
+
+            <Condition>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-greater-than-or-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                        <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#integer"
+                                             AttributeId="urn:tf:cyber:xacml:polling-frequency:time-since-last-access:ms"
+                                             Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                             MustBePresent="true"
+                        />
+                    </Apply>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1000</AttributeValue>
+                </Apply>
+            </Condition>
+        </Rule>
+
+        <ObligationExpressions>
+            <ObligationExpression ObligationId="LogObligation" FulfillOn="Permit">
+                <AttributeAssignmentExpression AttributeId="LogObligation:Subject">
+                    <AttributeDesignator MustBePresent="true"
+                                         Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </AttributeAssignmentExpression>
+                <AttributeAssignmentExpression AttributeId="LogObligation:Action">
+                    <AttributeDesignator MustBePresent="true"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </AttributeAssignmentExpression>
+                <AttributeAssignmentExpression AttributeId="LogObligation:Resource">
+                    <AttributeDesignator MustBePresent="true"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </AttributeAssignmentExpression>
+            </ObligationExpression>
+        </ObligationExpressions>
+    </Policy>
+</PolicySet>

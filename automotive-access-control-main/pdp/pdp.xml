@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://authzforce.github.io/core/xmlns/pdp/8" version="8.0" maxIntegerValue="2147483648">
+    <attributeDatatype>urn:ogc:def:dataType:geoxacml:1.0:geometry</attributeDatatype>
+    <attributeDatatype>urn:oasis:names:tc:xacml:3.0:data‑type:dayOfWeek</attributeDatatype>
+
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-equals</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-disjoint</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-touches</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-crosses</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-within</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-contains</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-overlaps</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-intersects</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-one-and-only</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-bag-size</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-is-in</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-bag</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-bag-intersection</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-bag-at-least-one-member-of</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-bag-union</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-bag-subset</function>
+    <function>urn:ogc:def:function:geoxacml:1.0:geometry-set-equals</function>
+    <function>urn:oasis:names:tc:xacml:3.0:function:dateTime-in-dayOfWeek-range</function>
+
+    <attributeProvider
+            id="gps"
+            xmlns:gps="http://cyber.tf/xacml/location/gpslocation"
+            xsi:type="gps:GPSLocationProviderDescriptor"
+            xmlns:xacml="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+            gpsURL="http://localhost:8081/" />
+
+    <attributeProvider
+            id="pollingfrequency"
+            xmlns:pf="http://cyber.tf/xacml/pollingfrequency"
+            xsi:type="pf:PollingFrequencyProviderDescriptor"
+            xmlns:xacml="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+            logUrl="http://localhost:9999/log/query" />
+
+    <policyProvider id="policyProvider" xsi:type="StaticPolicyProvider">
+        <policyLocation>policies/example-rm.xml</policyLocation>
+    </policyProvider>
+
+    <rootPolicyRef>SmartSuranceRM</rootPolicyRef>
+</pdp>

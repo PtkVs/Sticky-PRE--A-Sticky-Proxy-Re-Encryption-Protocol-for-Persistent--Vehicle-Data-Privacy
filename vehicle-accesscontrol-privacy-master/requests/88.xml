@@ -1,0 +1,52 @@
+{
+  "Request": {
+    "Category": [
+      
+      {
+        "CategoryId": "urn:oasis:names:tc:xacml:1.0:subject-category:access-subject",
+        "Attribute": [
+          {
+            "AttributeId": "urn:oasis:names:tc:xacml:1.0:subject:subject-id",
+            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+            "Value": "dashmon"
+          }
+        ]
+      },
+
+      {
+        "CategoryId": "urn:oasis:names:tc:xacml:3.0:attribute-category:action",
+        "Attribute": [
+          {
+            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+            "Value": "GET"
+          }
+        ]
+      },
+      {
+        "CategoryId": "urn:oasis:names:tc:xacml:3.0:attribute-category:resource",
+        "Attribute": [
+          {
+            "AttributeId": "urn:oasis:names:tc:xacml:1.0:resource:resource-id",
+            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+            "Value": "/vehicle/camera"
+          }
+        ]
+      }
+
+     
+
+      
+      
+      
+      
+
+
+      
+      
+    
+      
+    ]
+  }
+}
+

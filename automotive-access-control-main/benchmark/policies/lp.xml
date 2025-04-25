@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Policy
+        xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+        Version="1.0"
+        PolicyId="LP"
+        xmlns:geoxacml="http://www.opengis.net/geoxacml"
+        RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+    <Target>
+        <AnyOf>
+            <AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">smartsurance</AttributeValue>
+                    <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </Match>
+
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GET</AttributeValue>
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                                         MustBePresent="true"
+                    />
+                </Match>
+
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/vehicle/vehicleSpeed</AttributeValue>
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Match>
+            </AllOf>
+        </AnyOf>
+    </Target>
+
+    <Rule
+            Effect="Permit"
+            RuleId="AllowLocation">
+
+        <Target/>
+
+        <Condition>
+            <Apply FunctionId="urn:ogc:def:function:geoxacml:1.0:geometry-contains">
+                <AttributeValue
+                        DataType="urn:ogc:def:dataType:geoxacml:1.0:geometry"
+                        geoxacml:crs="EPSG:4326">POLYGON ((
+                        47.87309323364687 12.15210743260664,
+                        47.87234692642532 12.15153309921674,
+                        47.87220768045843 12.15195575473374,
+                        47.87144243316188 12.15149217039772,
+                        47.87116929162281 12.15200732142466,
+                        47.87147681844267 12.15294236163636,
+                        47.87189211646691 12.15320787010599,
+                        47.87223873300501 12.15326087111573,
+                        47.87246524989938 12.15305416236987,
+                        47.87279231045821 12.15324848664072,
+                        47.87309323364687 12.15210743260664
+                        ))
+                </AttributeValue>
+
+                <Apply FunctionId="urn:ogc:def:function:geoxacml:1.0:geometry-one-and-only">
+                    <AttributeDesignator
+                            DataType="urn:ogc:def:dataType:geoxacml:1.0:geometry"
+                            AttributeId="urn:tf:cyber:xacml:location:gpslocation"
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                            MustBePresent="true"
+                    />
+                </Apply>
+            </Apply>
+        </Condition>
+    </Rule>
+
+</Policy>

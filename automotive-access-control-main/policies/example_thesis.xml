@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<Policy Version="1.0"
+    xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+    PolicyId="SamplePolicy">
+
+    <Target/>
+
+    <Rule Effect="Permit" RuleId="PermitTest">
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">sample</AttributeValue>
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">sample</AttributeValue>
+            </Apply>
+        </Condition>
+    </Rule>
+</Policy>

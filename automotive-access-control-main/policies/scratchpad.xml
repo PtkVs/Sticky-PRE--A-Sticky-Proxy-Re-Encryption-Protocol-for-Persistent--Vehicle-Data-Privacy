@@ -1,0 +1,13 @@
+<Condition>
+  <Apply FunctionId="urn:oasis:names:tc:xacml:3.0:function:dateTime-in-dayOfWeek-range">
+    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
+      <AttributeDesignator
+              Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+              AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-dateTime"
+              DataType="http://www.w3.org/2001/XMLSchema#dateTime"
+              MustBePresent="false"/>
+    </Apply>
+    <AttributeValue DataType="urn:oasis:names:tc:xacml:3.0:data‑type:dayOfWeek">1+02:00</AttributeValue>
+    <AttributeValue DataType="urn:oasis:names:tc:xacml:3.0:data‑type:dayOfWeek">5+02:00</AttributeValue>
+  </Apply>
+</Condition>

@@ -1,0 +1,10 @@
+<!--
+<pdp xmlns="http://authzforce.github.io/core/xmlns/pdp/8"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     maxIntegerValue="2147483648"
+     version="8.0">
+   <policyProvider  id="policyProvider" xsi:type="StaticPolicyProvider">
+      <policyLocation>policies/0.xml</policyLocation>
+   </policyProvider>
+</pdp>
+-->

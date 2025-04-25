@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Policy
+        xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+        Version="1.0"
+        PolicyId="TP"
+        RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+    <Target>
+        <AnyOf>
+            <AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">smartsurance</AttributeValue>
+                    <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </Match>
+
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GET</AttributeValue>
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                                         MustBePresent="true"
+                    />
+                </Match>
+
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/vehicle/vehicleSpeed</AttributeValue>
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         MustBePresent="true"
+                    />
+                </Match>
+            </AllOf>
+        </AnyOf>
+    </Target>
+
+    <Rule
+            Effect="Permit"
+            RuleId="AllowTimeRange">
+
+        <Target/>
+
+        <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:3.0:function:dateTime-in-dayOfWeek-range">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#dateTime">2022-04-01T12:00:00+01:00</AttributeValue>
+                <AttributeValue DataType="urn:oasis:names:tc:xacml:3.0:data‑type:dayOfWeek">1+01:00</AttributeValue>
+                <AttributeValue DataType="urn:oasis:names:tc:xacml:3.0:data‑type:dayOfWeek">5+01:00</AttributeValue>
+            </Apply>
+        </Condition>
+    </Rule>
+
+</Policy>

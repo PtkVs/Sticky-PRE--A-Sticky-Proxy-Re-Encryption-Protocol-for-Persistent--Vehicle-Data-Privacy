@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Policy
+        xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+        Version="1.0"
+        PolicyId="PP"
+        RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable">
+    <Target>
+        <AnyOf>
+            <AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">smartsurance</AttributeValue>
+                    <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id"
+                            MustBePresent="true"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </Match>
+
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GET</AttributeValue>
+                    <AttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                                         MustBePresent="true"
+                    />
+                </Match>
+            </AllOf>
+        </AnyOf>
+    </Target>
+
+    <Rule
+            Effect="Permit"
+            RuleId="AllowPF">
+
+        <Target></Target>
+
+    </Rule>
+
+    <ObligationExpressions>
+        <ObligationExpression ObligationId="LogObligation" FulfillOn="Permit">
+            <AttributeAssignmentExpression AttributeId="LogObligation:Subject">
+                <AttributeDesignator MustBePresent="true"
+                                     Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                                     AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id"
+                                     DataType="http://www.w3.org/2001/XMLSchema#string"/>
+            </AttributeAssignmentExpression>
+            <AttributeAssignmentExpression AttributeId="LogObligation:Action">
+                <AttributeDesignator MustBePresent="true"
+                                     Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                                     AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                                     DataType="http://www.w3.org/2001/XMLSchema#string"/>
+            </AttributeAssignmentExpression>
+            <AttributeAssignmentExpression AttributeId="LogObligation:Resource">
+                <AttributeDesignator MustBePresent="true"
+                                     Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                     AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                                     DataType="http://www.w3.org/2001/XMLSchema#string"/>
+            </AttributeAssignmentExpression>
+        </ObligationExpression>
+    </ObligationExpressions>
+</Policy>

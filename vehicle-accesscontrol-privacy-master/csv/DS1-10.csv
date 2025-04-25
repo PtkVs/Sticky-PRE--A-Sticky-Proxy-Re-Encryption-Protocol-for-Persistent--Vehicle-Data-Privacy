@@ -1,0 +1,10 @@
+Fuel_consumption,Throttle_position_signal,Intake_air_pressure,Engine_speed,Flywheel_torque_(after_torque_interventions),Calculated_LOAD_value,Torque_converter_speed,Torque_converter_turbine_speed_-_Unfiltered,Steering_wheel_angle,Transmission_oil_temperature
+268.8,5.2,33,929,-5.9,23.9,939.3,935.5,-3.4,87
+243.2,6.1,40,726,1.7,30.6,710,709.5,-3.6,87
+217.6,5.2,41,685,-3,31.8,663.3,663.5,-3.6,87
+204.8,4.7,38,675,-1.3,29,652.5,653,-3.6,87
+217.6,5.7,40,716,-15.6,30.2,692.5,693.8,-3.5,87
+243.2,5.7,41,740,-16.9,31.4,721.5,721.5,-3.4,87
+217.6,5.7,42,682,-10.8,31.8,660.8,660.8,-3.6,87
+294.4,6.6,52,670,1.3,41.2,439.3,442,-1.6,87
+332.8,7.1,60,655,8.5,49,0,0,7.9,87

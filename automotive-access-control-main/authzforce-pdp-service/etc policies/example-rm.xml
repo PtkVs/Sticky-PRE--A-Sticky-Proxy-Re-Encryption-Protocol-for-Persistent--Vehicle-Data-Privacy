@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Policy
+        xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+        Version="1.0"
+        PolicyId="SmartSuranceRM"
+        RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+  <Target>
+    <AnyOf>
+      <AllOf>
+        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">floppybird</AttributeValue>
+          <AttributeDesignator
+                  Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                  AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id"
+                  MustBePresent="true"
+                  DataType="http://www.w3.org/2001/XMLSchema#string"/>
+        </Match>
+      </AllOf>
+    </AnyOf>
+  </Target>
+
+  <Rule
+          Effect="Permit"
+          RuleId="CPURestrictTime">
+    <Description>Restricts CPU time to 20000 / 100000 microseconds at max.</Description>
+    <Target>
+      <AnyOf>
+        <AllOf>
+          <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/cpu/time</AttributeValue>
+            <AttributeDesignator
+                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                    MustBePresent="true"
+                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+          </Match>
+        </AllOf>
+      </AnyOf>
+    </Target>
+    <Condition>
+      <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+          <AttributeDesignator
+                  Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                  AttributeId="urn:tf:cyber:resourcecontrol:cpu:time"
+                  DataType="http://www.w3.org/2001/XMLSchema#integer"
+                  MustBePresent="true"/>
+        </Apply>
+        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">20000</AttributeValue>
+      </Apply>
+    </Condition>
+  </Rule>
+
+  <Rule
+          Effect="Permit"
+          RuleId="CPURestrictNiceness">
+    <Description>Restricts process niceness to values greater than 18 (i.e. 19).</Description>
+    <Target>
+      <AnyOf>
+        <AllOf>
+          <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/cpu/nice</AttributeValue>
+            <AttributeDesignator
+                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                    MustBePresent="true"
+                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+          </Match>
+        </AllOf>
+      </AnyOf>
+    </Target>
+    <Condition>
+      <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-greater-than">
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+          <AttributeDesignator
+                  Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                  AttributeId="urn:tf:cyber:resourcecontrol:cpu:nice"
+                  DataType="http://www.w3.org/2001/XMLSchema#integer"
+                  MustBePresent="true"/>
+        </Apply>
+        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">18</AttributeValue>
+      </Apply>
+    </Condition>
+  </Rule>
+
+  <Rule
+          Effect="Permit"
+          RuleId="CPUSetSingleCore">
+    <Description>Allows setting the core affinity to CPU core 0 only.</Description>
+    <Target>
+      <AnyOf>
+        <AllOf>
+          <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/cpuset/add</AttributeValue>
+            <AttributeDesignator
+                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                    MustBePresent="true"
+                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+          </Match>
+        </AllOf>
+      </AnyOf>
+    </Target>
+    <Condition>
+      <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-is-in">
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+          <AttributeDesignator
+                  Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                  AttributeId="urn:tf:cyber:resourcecontrol:cpuset:add"
+                  DataType="http://www.w3.org/2001/XMLSchema#integer"
+                  MustBePresent="true"/>
+        </Apply>
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-bag">
+          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">0</AttributeValue>
+        </Apply>
+      </Apply>
+    </Condition>
+  </Rule>
+
+  <Rule
+          Effect="Permit"
+          RuleId="MemoryRestrictPhysicalHigh">
+    <Description>Allows allocating setting values up to 256 MiB in memory.high.</Description>
+    <Target>
+      <AnyOf>
+        <AllOf>
+          <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/memory/high</AttributeValue>
+            <AttributeDesignator
+                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                    MustBePresent="true"
+                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+          </Match>
+        </AllOf>
+      </AnyOf>
+    </Target>
+    <Condition>
+      <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+          <AttributeDesignator
+                  Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                  AttributeId="urn:tf:cyber:resourcecontrol:memory:high"
+                  DataType="http://www.w3.org/2001/XMLSchema#integer"
+                  MustBePresent="true"/>
+        </Apply>
+        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">268435456</AttributeValue>
+      </Apply>
+    </Condition>
+  </Rule>
+
+  <Rule
+          Effect="Permit"
+          RuleId="MemoryRestrictPhysicalMax">
+    <Description>Allows allocating setting values up to 288 MiB in memory.max.</Description>
+    <Target>
+      <AnyOf>
+        <AllOf>
+          <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/memory/max</AttributeValue>
+            <AttributeDesignator
+                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                    MustBePresent="true"
+                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+          </Match>
+        </AllOf>
+      </AnyOf>
+    </Target>
+    <Condition>
+      <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+          <AttributeDesignator
+                  Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                  AttributeId="urn:tf:cyber:resourcecontrol:memory:max"
+                  DataType="http://www.w3.org/2001/XMLSchema#integer"
+                  MustBePresent="true"/>
+        </Apply>
+        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">301989888</AttributeValue>
+      </Apply>
+    </Condition>
+  </Rule>
+
+  <Rule
+          Effect="Permit"
+          RuleId="IORestrictRbps">
+    <Description>Allows setting the disk i/o read speed for the primary disk (8:0) to 5 MiB/s max.</Description>
+    <Target>
+      <AnyOf>
+        <AllOf>
+          <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/io/rbps</AttributeValue>
+            <AttributeDesignator
+                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                    MustBePresent="true"
+                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+          </Match>
+          <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">8</AttributeValue>
+            <AttributeDesignator
+                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                    AttributeId="urn:tf:cyber:resourcecontrol:io:devicemaj"
+                    DataType="http://www.w3.org/2001/XMLSchema#integer"
+                    MustBePresent="true"/>
+          </Match>
+          <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">0</AttributeValue>
+            <AttributeDesignator
+                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                    AttributeId="urn:tf:cyber:resourcecontrol:io:devicemin"
+                    DataType="http://www.w3.org/2001/XMLSchema#integer"
+                    MustBePresent="true"/>
+          </Match>
+        </AllOf>
+      </AnyOf>
+    </Target>
+    <Condition>
+      <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+          <AttributeDesignator
+                  Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                  AttributeId="urn:tf:cyber:resourcecontrol:io:rbps"
+                  DataType="http://www.w3.org/2001/XMLSchema#integer"
+                  MustBePresent="true"/>
+        </Apply>
+        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">5242880</AttributeValue>
+      </Apply>
+    </Condition>
+  </Rule>
+
+  <Rule
+          Effect="Permit"
+          RuleId="IORestrictWbps">
+    <Description>Allows setting the disk i/o write speed for the primary disk (8:0) to 2 MiB/s max.</Description>
+    <Target>
+      <AnyOf>
+        <AllOf>
+          <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">/io/wbps</AttributeValue>
+            <AttributeDesignator
+                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                    AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                    MustBePresent="true"
+                    DataType="http://www.w3.org/2001/XMLSchema#string"/>
+          </Match>
+          <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">8</AttributeValue>
+            <AttributeDesignator
+                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                    AttributeId="urn:tf:cyber:resourcecontrol:io:devicemaj"
+                    DataType="http://www.w3.org/2001/XMLSchema#integer"
+                    MustBePresent="true"/>
+          </Match>
+          <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:integer-equal">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">0</AttributeValue>
+            <AttributeDesignator
+                    Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                    AttributeId="urn:tf:cyber:resourcecontrol:io:devicemin"
+                    DataType="http://www.w3.org/2001/XMLSchema#integer"
+                    MustBePresent="true"/>
+          </Match>
+        </AllOf>
+      </AnyOf>
+    </Target>
+    <Condition>
+      <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+          <AttributeDesignator
+                  Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                  AttributeId="urn:tf:cyber:resourcecontrol:io:wbps"
+                  DataType="http://www.w3.org/2001/XMLSchema#integer"
+                  MustBePresent="true"/>
+        </Apply>
+        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2097152</AttributeValue>
+      </Apply>
+    </Condition>
+  </Rule>
+</Policy>
